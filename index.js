@@ -138,14 +138,8 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
 */
 function processContains(item, list, callback) {
-    const existsFilter = list.filter(function(item){
-      if(typeof item != "undefined"){
-        alert ("true");
-      } else {
-        alert ("false");
-      }
-    });
-    return callback(existsFilter);
+    const bool = list.includes(item);
+    return callback(bool);
 }
 
 /**
@@ -301,8 +295,14 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(max) {
+  let count = 0;
+  return function counter(){
+    if(count > max) {
+      count = 0;
+    }
+    return count++
+  }
 }
 
 /////////////// END OF CHALLENGE ///////////////
