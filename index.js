@@ -273,8 +273,9 @@ function counterMaker() {
   // BROKEN CODE STARTS
   const count = 0;
   function counter() {
-    ++count
+    ++count;
   }
+  
   // BROKEN CODE ENDS
 }
 
