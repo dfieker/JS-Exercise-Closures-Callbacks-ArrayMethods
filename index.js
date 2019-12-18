@@ -192,7 +192,7 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
 function getFullNames(runners) {
   const names = [];
     runners.forEach(function(currentValue){
-      names.push(currentValue.last_name, currentValue.first_name);
+      names.push(`${currentValue.last_name}, ${currentValue.first_name}`);
     });
     return names;
 }
@@ -231,7 +231,9 @@ function firstNamesAllCaps(runners) {
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
   const runnerShirts = runners.filter(function(currentValue){
-    return currentValue.tShirtSize;
+    if (currentValue.shirt_size === tShirtSize){
+      return runners;
+    };
   });
   return runnerShirts;
 }
@@ -271,9 +273,9 @@ function tallyUpDonations(runners) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count;
+  let count = 0;
+  return function counter() {
+    return count++;
   }
   
   // BROKEN CODE ENDS
